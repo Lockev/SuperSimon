@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Simon Guillaume PRIGENT</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-w+8Gqjk9Cuo6XH9HKHG5t5I1VR4YBNdPt/29vwgfZR485eoEJZ8rJRbm3TR32P6k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="HUD">
+            <!-- Partie HUD de gauche  -->
+            <div class="HUDmod scoreBoard">
+                <div class="HUDsubMod">
+                    <div class="HUDsubModLeftText">
+                        <p>Couleurs correctes : </p>
+                    </div>
+                    <div class="HUDsubModLeftText">
+                        <p>Round : </p>
+                    </div>
+                </div>
+                <div class="HUDsubMod">
+                    <div class="HUDsubModLeftNumber">
+                        <p id="touchesValue">0</p>
+                    </div>
+                    <div class="HUDsubModLeftNumber">
+                        <p id="roundValue">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barre séparatrice milieu HUD -->
+            <div class="HUDmiddle"></div>
+
+            <!-- Partie HUD de droite  -->
+            <div class="HUDmod start">
+                <div class="HUDsubMod">
+                    <button class="startGameButton" id="start">Play</button>
+                </div>
+                <div class="HUDsubMod">
+                    <div class="infoIcon"><i class="fas fa-info-circle fa-3x"></i></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Fin du HUD -->
+
+    </header>
+
+    <main>
+        <!-- <div id="waitPls" style="display:none;">Veuillez attendre la fin de chaque animation avant de cliquer
+            de nouveau.</div> -->
+        <div class="game">
+            <div class="touches">
+                <div class="toucheSimon Rouge" style="background-color: #f75353" id="T0"></div>
+                <div class="toucheSimon Jaune" style="background-color: #8ec5fc" id="T1"></div>
+                <div class="toucheSimon Verte" style="background-color: #9debaa" id="T2"></div>
+                <div class="toucheSimon Bleue" style="background-color: #f0d360" id="T3"></div>
+            </div>
+        </div>
+
+
+        <!-- Modales  -->
+        <div class="modal" style="display:none" id="infoModal">
+            <div class="modal-content">
+                <div class="close-button" id="infoCloseButton">&times;</div>
+                <p>Règles du Super Simon :
+                    <br><br>
+                    Lors du lancement d'une partie, une suite de trois couleurs choisies aléatoirement vont s'illuminer,
+                    tout en produisant une note.<br>
+                    Le joueur devra reconstituer cette suite de couleur dans le même ordre en cliquant sur la couleur
+                    correspondant pour passer au round suivant.<br>
+                    À chaque nouveau round le joueur devra se souvenir d'une note supplémentaire.<br>
+                    De plus, pendant les 8
+                    prochains round le temps entre chaque note sera réduit pour augmenter la difficulté du jeu. Au bout
+                    de 8 round, la vitesse sera stabilisée.</p>
+            </div>
+        </div>
+        <div class="modal" style="display:none" id="gameOverModal">
+            <div class="modal-content">
+                <div class="close-button" id="gameOverCloseButton">&times;</div>
+                <p>Game Over !<br>
+                    Vous avez été battu par Simon !</p>
+                <p style="font-size: 14px;">Veuillez appuyer deux fois sur le bouton "rejouer" si vous venez de perdre
+                    votre 1ere partie.</p>
+                <button class="btnRestart" id="btnRestart">Rejouer</button>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script async defer src="/javascript/script.js"></script>
+    <script src="/javascript/modale.js"></script>
+
+</body>
+
+</html>
