@@ -45,7 +45,7 @@ async function nouveauTourSimon() {
     if (simonGame.length < 9) {
       speed = (9 / 10) * speed;
       lightUptime = (9 / 10) * lightUptime;
-    } else {
+    } else if (simonGame.length == 9) {
       console.log("Max speed reached");
     }
 
@@ -88,7 +88,22 @@ async function comparaison() {
 
 // Fait clignoter la div cliquée ou choisie par Simon
 function clignote(ele, time) {
-  let baseColor = ele.style.backgroundColor;
+  let baseColor;
+  switch (ele.id) {
+    case "T0":
+      baseColor = "#f85353";
+      break;
+    case "T1":
+      baseColor = "#8ec5fc";
+      break;
+    case "T2":
+      baseColor = "#9debaa";
+      break;
+    case "T3":
+      baseColor = "#f0d360";
+      break;
+  }
+
   anime({
     easing: "easeInOutSine",
     targets: "#" + ele.id,
@@ -116,6 +131,7 @@ function clignote(ele, time) {
 // Reboot le jeu
 function start() {
   reset();
+  document.getElementById("start").innerHTML = "Restart";
   nouveauTourSimon();
 }
 
