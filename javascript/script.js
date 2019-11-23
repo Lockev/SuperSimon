@@ -42,10 +42,11 @@ async function nouveauTourSimon() {
 
     // Fait clignoter les couleur selon l'array simonGame
     for (let i = 0; i < simonGame.length; i++) {
-      clignote(document.getElementById("T" + simonGame[i]), lightUptime);
       // On joue le son lié à la case
       var audio = new Audio("https://lockev.github.io/SuperSimon/sounds/" + "T" + simonGame[i] + ".wav");
       audio.play();
+      
+      clignote(document.getElementById("T" + simonGame[i]), lightUptime);
       await wait(speed);
     }
 
