@@ -19,7 +19,7 @@ function reset() {
   joueurFlash = 500;
   alive = true;
   document.getElementById("touchesValue").innerHTML = 0; // On reset la valeur de touches dans l'HUD
-  document.getElementById("roundValue").innerHTML = 0; // On reset la valeur de touches dans l'HUD
+  document.getElementById("roundValue").innerHTML = 1; // On reset la valeur de touches dans l'HUD
 }
 
 // Fonction pour forcer le code à attendre => Chaque fonction comprennant wait() devra être async
@@ -31,6 +31,11 @@ async function wait(ms) {
 async function nouveauTourSimon() {
   if (alive) {
     joueurList = [];
+
+    // On change les indicateurs lumineux
+    document.getElementById("simonTurnIndicator").style.backgroundColor = "#53e040";
+    document.getElementById("playerTurnIndicator").style.backgroundColor = "#ccc";
+
     document.getElementById("touchesValue").innerHTML = 0; // On reset la valeur de touches dans l'HUD
     simonGame.push(Math.round(Math.random() * 3));
     console.log(simonGame);
@@ -38,6 +43,9 @@ async function nouveauTourSimon() {
     // Fait clignoter les couleur selon l'array simonGame
     for (let i = 0; i < simonGame.length; i++) {
       clignote(document.getElementById("T" + simonGame[i]), lightUptime);
+      // On joue le son lié à la case
+      var audio = new Audio("../sounds/" + "T" + simonGame[i] + ".wav");
+      audio.play();
       await wait(speed);
     }
 
@@ -50,6 +58,9 @@ async function nouveauTourSimon() {
     }
 
     tourJoueur = true;
+    // On change les indicateurs lumineux
+    document.getElementById("playerTurnIndicator").style.backgroundColor = "#53e040";
+    document.getElementById("simonTurnIndicator").style.backgroundColor = "#ccc";
   }
 }
 
@@ -77,6 +88,8 @@ async function comparaison() {
     }
     i++;
   });
+  document.getElementById("touchesValue").innerHTML++; // On incrémente la valeur de touches dans l'HUD
+
   // Lorsque les listes sont identiques : le joueur a réussi le round, au passe au round suivant
   if (simonGame.length == joueurList.length) {
     console.log("Round réussi");
@@ -119,9 +132,11 @@ function clignote(ele, time) {
     if (tourJoueur) {
       // La case cliquée change de couleur
       clignote(ele, joueurFlash);
+      // On joue le son lié à la case
+      var audio = new Audio("../sounds/" + ele.id + ".wav");
+      audio.play();
       // On push le numéro correspondant à la case cliquée => 0,1,2,3
       joueurList.push(parseInt(ele.id.slice(-1)));
-      document.getElementById("touchesValue").innerHTML++; // On incrémente la valeur de touches dans l'HUD
       // Et on compare la nouvelle entrée
       comparaison();
     }
@@ -135,8 +150,9 @@ function start() {
   nouveauTourSimon();
 }
 
+// Detecte que le joueur souhaite lancer / relancer une partie
 btnStart.addEventListener("click", async () => {
-  await wait(700); // On commence avec un délai après le clic pour ne pas surprendre le joueur
+  await wait(1000); // On commence avec un délai après le clic pour ne pas surprendre le joueur
   start();
 });
 

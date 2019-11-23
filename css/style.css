@@ -2,7 +2,7 @@
 
 .HUD {
   display: flex;
-  width: 40vw;
+  width: 42vw;
   margin: auto;
   margin-top: 30px;
   padding: 15px;
@@ -26,13 +26,14 @@
 
 .HUDsubMod {
   display: inline-block;
-  margin: 0.5vh 1.5vw 0.5vh 0.5vw;
-  align-items: stretch;
+  margin: 0.5vh 0.5vw 0.5vh 0.5vw;
 }
 
 .scoreBoard {
-  width: 65%;
+  display: flex;
+  margin: auto 0;
 }
+
 .HUDsubModLeftText {
   width: 12vw;
   margin: 0.3vw 0;
@@ -44,10 +45,6 @@
   margin: 0.5vw 0;
 }
 
-.HUDsubModLeftNumber p {
-  width: inherit;
-}
-
 .HUDmiddle {
   display: flex;
   background-color: #eee;
@@ -57,10 +54,33 @@
   border-radius: 10px;
 }
 
+.HUDmiddleContent {
+  display: flex;
+  margin: auto auto;
+}
+
+.HUDmiddleContent p {
+  margin: 20px 0 25px 0;
+}
+
+.indicator {
+  background-color: #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 200%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .infoIcon {
   display: flex;
   cursor: pointer;
   margin-top: calc(10px + 1vh);
+}
+
+.start {
+  display: flex;
+  margin: auto auto;
 }
 
 .startGameButton {
@@ -69,9 +89,12 @@
   background-color: #efefef;
   height: 50px;
   width: 75px;
-  margin: calc(8px + 1vh) 0 0 1vw;
   border-radius: 10px;
   align-self: center;
+}
+
+.start i {
+  margin-top: -14px;
 }
 
 /* Game */
@@ -93,20 +116,24 @@
   cursor: pointer;
 }
 
-.Rouge {
-  background-color: #f85353;
+.toucheSimon p {
+  margin: auto auto;
+  font-size: 75px;
+}
+.Rouge p {
+  color: #f85353;
 }
 
-.Bleue {
-  background-color: #8ec5fc;
+.Bleue p {
+  color: #8ec5fc;
 }
 
-.Verte {
-  background-color: #9debaa;
+.Verte p {
+  color: #9debaa;
 }
 
-.Jaune {
-  background-color: #f0d360;
+.Jaune p {
+  color: #f0d360;
 }
 
 /* Modale */

@@ -34,7 +34,7 @@
                         <p id="touchesValue">0</p>
                     </div>
                     <div class="HUDsubModLeftNumber">
-                        <p id="roundValue">0</p>
+                        <p id="roundValue">1</p>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,25 @@
             <!-- Barre séparatrice milieu HUD -->
             <div class="HUDmiddle"></div>
 
+            <div class="HUDmiddleContent">
+
+                <div class="HUDsubMod">
+                    <div class="indicator" id="playerTurnIndicator" style="background-color: #ccc"></div>
+                    <div class="indicator" id="simonTurnIndicator" style="background-color: #ccc"></div>
+                </div>
+
+                <div class="HUDsubMod">
+                    <div class="">
+                        <p>Votre tour</p>
+                    </div>
+                    <div class="">
+                        <p>Tour de Simon</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="HUDmiddle"></div>
             <!-- Partie HUD de droite  -->
             <div class="HUDmod start">
                 <div class="HUDsubMod">
@@ -60,10 +79,18 @@
     <main>
         <div class="game">
             <div class="touches">
-                <div class="toucheSimon Rouge" style="background-color: #f75353" id="T0"></div>
-                <div class="toucheSimon Jaune" style="background-color: #8ec5fc" id="T1"></div>
-                <div class="toucheSimon Verte" style="background-color: #9debaa" id="T2"></div>
-                <div class="toucheSimon Bleue" style="background-color: #f0d360" id="T3"></div>
+                <div class="toucheSimon Rouge" style="background-color: #f75353" id="T0">
+                    <p>DO</p>
+                </div>
+                <div class="toucheSimon Bleue" style="background-color: #8ec5fc" id="T1">
+                    <p>RE</p>
+                </div>
+                <div class="toucheSimon Verte" style="background-color: #9debaa" id="T2">
+                    <p>MI</p>
+                </div>
+                <div class="toucheSimon Jaune" style="background-color: #f0d360" id="T3">
+                    <p>FA</p>
+                </div>
             </div>
         </div>
 
