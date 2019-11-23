@@ -133,7 +133,7 @@ function clignote(ele, time) {
       // La case cliquée change de couleur
       clignote(ele, joueurFlash);
       // On joue le son lié à la case
-      var audio = new Audio("../sounds/" + ele.id + ".wav");
+      var audio = new Audio("https://lockev.github.io/SuperSimon/sounds/" + ele.id + ".wav");
       audio.play();
       // On push le numéro correspondant à la case cliquée => 0,1,2,3
       joueurList.push(parseInt(ele.id.slice(-1)));
