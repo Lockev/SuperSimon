@@ -36,7 +36,6 @@ async function nouveauTourSimon() {
     document.getElementById("simonTurnIndicator").style.backgroundColor = "#53e040";
     document.getElementById("playerTurnIndicator").style.backgroundColor = "#ccc";
 
-    document.getElementById("touchesValue").innerHTML = 0; // On reset la valeur de touches dans l'HUD
     simonGame.push(Math.round(Math.random() * 3));
     console.log(simonGame);
 
@@ -45,7 +44,7 @@ async function nouveauTourSimon() {
       // On joue le son lié à la case
       var audio = new Audio("https://lockev.github.io/SuperSimon/sounds/" + "T" + simonGame[i] + ".wav");
       audio.play();
-      
+
       clignote(document.getElementById("T" + simonGame[i]), lightUptime);
       await wait(speed);
     }
