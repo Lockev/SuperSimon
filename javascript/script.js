@@ -44,7 +44,7 @@ async function nouveauTourSimon() {
     for (let i = 0; i < simonGame.length; i++) {
       clignote(document.getElementById("T" + simonGame[i]), lightUptime);
       // On joue le son lié à la case
-      var audio = new Audio("sounds/" + "T" + simonGame[i] + ".wav");
+      var audio = new Audio("/SuperSimon/sounds/" + "T" + simonGame[i] + ".wav");
       audio.play();
       await wait(speed);
     }
